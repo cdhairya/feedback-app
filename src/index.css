@@ -13,6 +13,7 @@ body {
     line-height: 1.6;
 }
 
+/* Header component */
 header {
     height: 70px;
     width: 100%;
@@ -26,4 +27,32 @@ header {
     max-width: 768px;
     margin: auto;
     padding: 0 20px;
+}
+
+/* Feedback Item component */
+.card {
+    background-color: #fff;
+    color: #333;
+    border-radius: 15px;
+    padding: 40px 50px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.num-display {
+    /* background-color: #f4f4f4; */
+    background-color: #ff6a95;
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 19px;
+    border: 1px #eee solid;
+    /* position: relative; */
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    transition: 0.3s;
 }
