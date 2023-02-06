@@ -71,3 +71,9 @@ header {
     background: none;
     border: none;
 }
+
+.feedback-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
