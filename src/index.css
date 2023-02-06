@@ -45,6 +45,11 @@ header {
     position: relative;
 }
 
+.card h2 {
+    text-align: center;
+    font-weight: 600;
+}
+
 .num-display {
     /* background-color: #f4f4f4; */
     background-color: #ff6a95;
@@ -76,4 +81,22 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+input {
+    border: none;
+    flex-grow: 2;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
 }
