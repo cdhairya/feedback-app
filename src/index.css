@@ -19,6 +19,39 @@ body {
     color: #fff;
 }
 
+.btn {
+    height: 40px;
+    width: 100px;
+    border: 0;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    color: #333;
+    cursor: auto;
+}
+
+.btn:disabled:hover {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.btn-primary {
+    background-color: #202142;
+}
+
+.btn-secondary {
+    background-color: #ff6a95;
+}
+
 /* Header component */
 header {
     height: 70px;
@@ -99,4 +132,10 @@ input {
 
 input:focus {
     outline: none;
+}
+
+.message {
+    text-align: center;
+    padding-top: 10px;
+    color: rebeccapurple;
 }

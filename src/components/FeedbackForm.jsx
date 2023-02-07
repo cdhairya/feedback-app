@@ -1,10 +1,24 @@
 import { useState } from "react";
 import Card from "./shared/Card";
+import Button from "./shared/Button";
 
 function FeedbackForm() {
   const [text, setText] = useState("");
+  const [message, setMessage] = useState("");
+  const [btnDisabled, setBtnDisabled] = useState(true);
 
   const handleTextChange = (e) => {
+    if (text.trim() === "") {
+      setBtnDisabled(true);
+      setMessage(null);
+    } else if (text.trim() !== "" && text.trim().length <= 10) {
+      setBtnDisabled(true);
+      setMessage("Text must be at least 10 characters");
+    } else {
+      setBtnDisabled(false);
+      setMessage(null);
+    }
+
     setText(e.target.value);
   };
 
@@ -19,8 +33,11 @@ function FeedbackForm() {
           value={text}
           onChange={handleTextChange}
         />
-        <button type="submit">Send</button>
+        <Button type="submit" isDisabled={btnDisabled}>
+          Send
+        </Button>
       </div>
+      {message && <div className="message">{message}</div>}
     </Card>
   );
 }
