@@ -101,6 +101,7 @@ header {
     transition: 0.3s;
 }
 
+.edit,
 .close {
     position: absolute;
     top: 10px;
@@ -108,6 +109,10 @@ header {
     cursor: pointer;
     background: none;
     border: none;
+}
+
+.edit {
+    right: 40px;
 }
 
 .feedback-stats {
