@@ -6,7 +6,7 @@ import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
 import AboutPage from "./components/pages/AboutPage";
 import AboutIconLink from "./components/AboutIconLink";
-
+import { FeedbackProvider } from "./context/FeedbackContext";
 // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -40,7 +40,7 @@ function App() {
   ]);
 
   return (
-    <>
+    <FeedbackProvider>
       <Header text="Feedback UI" />
       <div className="container">
         <RouterProvider router={router}>
@@ -49,7 +49,7 @@ function App() {
           <FeedbackList feedback={feedback} handleDelete={deleteFeedback} /> */}
         </RouterProvider>
       </div>
-    </>
+    </FeedbackProvider>
   );
 }
 
