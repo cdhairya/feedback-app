@@ -14,9 +14,20 @@ export const FeedbackProvider = ({ children }) => {
     },
   ]);
 
+  const addFeedback = (newFeedback) => {
+    setFeedback([newFeedback, ...feedback]);
+  };
+
+  const deleteFeedback = (id) => {
+    console.log(typeof id);
+    if (window.confirm("Are you sure you want to delete?")) {
+      setFeedback(feedback.filter((item) => item.id !== id));
+    }
+  };
+
   return (
     // Passing parameter value(object) as feedback
-    <FeedbackContext.Provider value={{ feedback }}>
+    <FeedbackContext.Provider value={{ feedback, deleteFeedback, addFeedback }}>
       {children}
     </FeedbackContext.Provider>
   );
