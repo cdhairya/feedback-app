@@ -7,9 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 function FeedbackList() {
   const { feedback, isLoading } = useContext(FeedbackContext);
 
-  if (!isLoading && (!feedback || feedback.length === 0)) {
-    return <p>Loading...</p>;
-  }
+  // if (!isLoading && (!feedback || feedback.length === 0)) {
+  //   return <p>Loading...</p>;
+  // }
 
   return isLoading ? (
     <Spinner />

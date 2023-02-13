@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import RatingSelect from "./RatingSelect";
 import Card from "./shared/Card";
 import Button from "./shared/Button";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import FeedbackContext from "../context/FeedbackContext";
 
 function FeedbackForm() {
@@ -40,7 +40,7 @@ function FeedbackForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newFeedback = {
-      id: uuidv4(),
+      // id: uuidv4(),
       text,
       rating,
     };
