@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 // Firstly, create constant for context
 const FeedbackContext = createContext();
@@ -6,27 +6,26 @@ const FeedbackContext = createContext();
 // We have to wrap everything with Provider that's why we pass children as prop.
 // We import this Provider where we need to use context.
 export const FeedbackProvider = ({ children }) => {
-  const [feedback, setFeedback] = useState([
-    {
-      id: 1,
-      text: "This is feedback item 1",
-      rating: 10,
-    },
-    {
-      id: 2,
-      text: "This is feedback item 2",
-      rating: 9,
-    },
-    {
-      id: 3,
-      text: "This is feedback item 3",
-      rating: 7,
-    },
-  ]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [feedback, setFeedback] = useState([]);
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
     edit: false,
   });
+
+  // Fetch feedback
+  useEffect(() => {
+    fetchFeedback();
+  }, []);
+
+  const fetchFeedback = async () => {
+    const response = await fetch(
+      "http://localhost:5000/feedback?_sort=id&_order=desc"
+    );
+    const data = await response.json();
+    setFeedback(data);
+    setIsLoading(false);
+  };
 
   // Add feedback
   const addFeedback = (newFeedback) => {
@@ -61,6 +60,7 @@ export const FeedbackProvider = ({ children }) => {
       value={{
         feedback,
         feedbackEdit,
+        isLoading,
         deleteFeedback,
         addFeedback,
         editFeedback,
